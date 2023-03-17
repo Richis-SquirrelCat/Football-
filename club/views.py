@@ -50,7 +50,7 @@ def statistica(request):
 
 @api_view(['GET'])
 def participant(request):
-    par = Participant.objects.all()
+    par = Participant.objects.all().order_by('-id')
     ser = ParticipantSerializer(par, many=True)
     return Response(ser.data)
 
